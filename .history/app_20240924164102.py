@@ -14,7 +14,7 @@ with col1:
 with col2:
     pov = st.selectbox("Point of View", point_of_view)
 with col3:
-    country = st.selectbox("County", options=target_country,index=185)
+    country = st.selectbox("County", options=target_country,)
 
 col4,col5 =st.columns(2)
 with col4:
@@ -39,13 +39,9 @@ Additional Instructions: {contains}
 
 '''
 btn=st.button("Generate")
-def copy_text_to_clipboard(text):
-    import pyperclip
-    pyperclip.copy(text)
-    st.success("Text copied to clipboard!")
 
 if btn:
+    
     st.write(template)
-    st.button("copy", on_click=copy_text_to_clipboard, args=(template,))
-
+    
     

@@ -22,6 +22,6 @@ point_of_view=[
 contains=[
     "table",
     "FAQ",
-    "H2,H3",
+    "H2, H3",
     "Quotes"
 ]

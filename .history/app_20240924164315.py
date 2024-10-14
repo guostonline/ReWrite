@@ -14,7 +14,7 @@ with col1:
 with col2:
     pov = st.selectbox("Point of View", point_of_view)
 with col3:
-    country = st.selectbox("County", options=target_country,index=185)
+    country = st.selectbox("County", options=target_country,index=)
 
 col4,col5 =st.columns(2)
 with col4:
