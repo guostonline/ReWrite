@@ -7,9 +7,11 @@ st.write("""
 """)
 keyword = st.text_input("Keyword")
 col1, col2, col3 = st.columns(3)
-
-st.page_link("pages/page1.py", )
-st.page_link("pages/page2.py", )
+#st.page_link("your_app.py", label="Home", icon="🏠")
+st.slider.page_link("pages/page1.py", label="Page 1", icon="1️⃣")
+st.slider.page_link("pages/page2.py", label="Page 2", icon="2️⃣", disabled=True)
+st.slider.page_link("http://www.google.com", label="Google", icon="🌎")
+    
 with col1:
     tone_voice_choice = st.selectbox("Tone of Voice", tone_voice)
 with col2:
