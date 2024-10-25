@@ -38,7 +38,7 @@ tone Voice: {tone_voice_choice}
 Point of View (POV): {pov}
 Number of Words: min {number_words}
 Additional Instructions: {contains}
-try to add those words in article {comma_separated}
+try to add those words in article {related_word}
 '''
 btn=st.button("Generate")
 def copy_text_to_clipboard(text):

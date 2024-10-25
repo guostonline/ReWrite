@@ -3,7 +3,7 @@ import pyperclip
 
 st.write("Split article for free Plagiarism")
 
-
+txt_field = st.text_area("Article")
 import requests
 from bs4 import BeautifulSoup
 
@@ -27,9 +27,9 @@ if st.button("Fetch Article"):
         st.success("Article fetched successfully!")
 
 if 'fetched_article' in st.session_state:
-    txt_field = st.text_area("Article", st.session_state.fetched_article,key="url")
+    txt_field = st.text_area("Article", st.session_state.fetched_article,ke)
 else:
-    txt_field = st.text_area("Article",key="url")
+    txt_field = st.text_area("Article")
 
 num_words_in_text = len(txt_field.split())
 st.write(f"Number of words in the article: {num_words_in_text}")

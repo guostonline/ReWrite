@@ -6,7 +6,6 @@ st.write("""
 # Ai prompt generate
 """)
 keyword = st.text_input("Keyword")
-related_word=st.text_area("Related words")
 col1, col2, col3 = st.columns(3)
 
 
@@ -22,8 +21,7 @@ with col4:
     number_words=st.number_input("Words count",min_value=500,max_value=3000,step=500,value=800)
 with col5:
     contains_selection=st.multiselect("Contains",options=contains,default=contains)
-items = related_word.splitlines()
-comma_separated = ", ".join(item.strip() for item in items if item.strip())
+
 template=f'''
 Objective:
 Generate a high-quality, SEO-optimized article targeting {country} using the following keywords: {keyword}. The article should have a compelling and powerful title that attracts readers and performs well in search engine rankings.
@@ -36,18 +34,15 @@ Title: Create a beautiful and powerful title incorporating the primary keyword (
 
 tone Voice: {tone_voice_choice}
 Point of View (POV): {pov}
-Number of Words: min {number_words}
+Number of Words:  {number_words}
 Additional Instructions: {contains}
-try to add those words in article {comma_separated}
+
 '''
 btn=st.button("Generate")
 def copy_text_to_clipboard(text):
     import pyperclip
     pyperclip.copy(text)
     st.success("Text copied to clipboard!")
-
-
-
 
 if btn:
     st.write(template)

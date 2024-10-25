@@ -3,7 +3,7 @@ import pyperclip
 
 st.write("Split article for free Plagiarism")
 
-
+txt_field = st.text_area("Article")
 import requests
 from bs4 import BeautifulSoup
 

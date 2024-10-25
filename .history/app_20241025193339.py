@@ -22,8 +22,7 @@ with col4:
     number_words=st.number_input("Words count",min_value=500,max_value=3000,step=500,value=800)
 with col5:
     contains_selection=st.multiselect("Contains",options=contains,default=contains)
-items = related_word.splitlines()
-comma_separated = ", ".join(item.strip() for item in items if item.strip())
+
 template=f'''
 Objective:
 Generate a high-quality, SEO-optimized article targeting {country} using the following keywords: {keyword}. The article should have a compelling and powerful title that attracts readers and performs well in search engine rankings.
@@ -38,7 +37,7 @@ tone Voice: {tone_voice_choice}
 Point of View (POV): {pov}
 Number of Words: min {number_words}
 Additional Instructions: {contains}
-try to add those words in article {comma_separated}
+try to add those words in article {related_word}
 '''
 btn=st.button("Generate")
 def copy_text_to_clipboard(text):
@@ -47,8 +46,10 @@ def copy_text_to_clipboard(text):
     st.success("Text copied to clipboard!")
 
 
-
-
+items = related_word.splitlines()
+comma_separated = ", ".join(item.strip() for item in items if item.strip())
+st.write("Comma-Separated Items:")
+st.write(comma_separated)
 if btn:
     st.write(template)
     st.button("copy", on_click=copy_text_to_clipboard, args=(template,))

@@ -3,34 +3,7 @@ import pyperclip
 
 st.write("Split article for free Plagiarism")
 
-
-import requests
-from bs4 import BeautifulSoup
-
-url = st.text_input("Enter the URL of the article")
-
-def fetch_article(url):
-    response = requests.get(url)
-    if response.status_code == 200:
-        soup = BeautifulSoup(response.content, 'html.parser')
-        paragraphs = soup.find_all('p')
-        article_text = ' '.join([para.get_text() for para in paragraphs])
-        return article_text
-    else:
-        st.error("Failed to fetch the article. Please check the URL and try again.")
-        return ""
-
-if st.button("Fetch Article"):
-    fetched_article = fetch_article(url)
-    if fetched_article:
-        st.session_state.fetched_article = fetched_article
-        st.success("Article fetched successfully!")
-
-if 'fetched_article' in st.session_state:
-    txt_field = st.text_area("Article", st.session_state.fetched_article,key="url")
-else:
-    txt_field = st.text_area("Article",key="url")
-
+txt_field = st.text_area("Article")
 num_words_in_text = len(txt_field.split())
 st.write(f"Number of words in the article: {num_words_in_text}")
 
