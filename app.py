@@ -8,8 +8,7 @@ st.write("""
 keyword = st.text_input("Keyword")
 col1, col2, col3 = st.columns(3)
 
-st.page_link("pages/page1.py", )
-st.page_link("pages/page2.py", )
+
 with col1:
     tone_voice_choice = st.selectbox("Tone of Voice", tone_voice)
 with col2:
