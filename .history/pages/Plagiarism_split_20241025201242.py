@@ -1,7 +1,6 @@
 import streamlit as st
 import pyperclip
-import requests
-from bs4 import BeautifulSoup
+
 st.write("Split article for free Plagiarism")
 
 
