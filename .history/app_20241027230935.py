@@ -2,7 +2,6 @@ import streamlit as st
 from stc.my_list import *
 from stc.county_list import *
 import pyperclip 
-
 st.write("""
 # Ai prompt generate
 """)

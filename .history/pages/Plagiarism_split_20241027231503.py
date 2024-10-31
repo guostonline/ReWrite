@@ -52,6 +52,6 @@ if st.button("Split Text"):
 
 for i, chunk in enumerate(st.session_state.chunks):
     st.write(f"Paragraph {i + 1}:")
-    st.markdown(chunk)
+    st.code(chunk)
     st.button("Copy", on_click=copy_text_to_clipboard, args=(chunk,), key=f"copy_{i}")
     st.divider()
