@@ -1,6 +1,5 @@
 import streamlit as st
 import pyperclip
-import clipboard
 import requests
 from bs4 import BeautifulSoup
 st.write("Split article for free Plagiarism")
@@ -40,8 +39,7 @@ def split_text_by_words(text, num_words):
     return [' '.join(words[i:i + num_words]) for i in range(0, len(words), num_words)]
 
 def copy_text_to_clipboard(text):
-    clipboard.copy(text)
-    #pyperclip.copy(text)
+    pyperclip.copy(text)
     st.success("Text copied to clipboard!")
 
 num_words = st.number_input("Number of words per chunk", min_value=1, value=1000, step=500)
@@ -54,7 +52,7 @@ if st.button("Split Text"):
 
 for i, chunk in enumerate(st.session_state.chunks):
     st.write(f"Paragraph {i + 1}:")
-    
-    st.write(chunk)
-    st.button("Copy", on_click=copy_text_to_clipboard, args=(chunk,), key=f"copy_{i}")
-    st.divider()
+    with st.container(height=500):
+        st.code(chunk)
+        #st.button("Copy", on_click=copy_text_to_clipboard, args=(chunk,), key=f"copy_{i}")
+        st.divider()
