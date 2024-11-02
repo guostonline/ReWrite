@@ -79,7 +79,7 @@ def main():
             
             # Display converted image
             st.subheader("Converted Image")
-            #st.image(converted_image, caption=f"Converted Size: {converted_image.size[0]}x{converted_image.size[1]} pixels")
+            st.image(converted_image, caption=f"Converted Size: {converted_image.size[0]}x{converted_image.size[1]} pixels")
             
             # Download button
             with open(webp_file, "rb") as file:

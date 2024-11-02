@@ -4,7 +4,6 @@ import os
 
 # Preset sizes dictionary (width x height in pixels)
 PRESET_SIZES = {
-    "WordPress Post [1200,675]":(1200,675),
     "Custom Size": None,
     "Instagram Square Post": (1080, 1080),
     "Instagram Portrait": (1080, 1350),
@@ -79,7 +78,7 @@ def main():
             
             # Display converted image
             st.subheader("Converted Image")
-            #st.image(converted_image, caption=f"Converted Size: {converted_image.size[0]}x{converted_image.size[1]} pixels")
+            st.image(converted_image, caption=f"Converted Size: {converted_image.size[0]}x{converted_image.size[1]} pixels")
             
             # Download button
             with open(webp_file, "rb") as file:
