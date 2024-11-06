@@ -126,7 +126,7 @@ def main():
                 text=text_params,
                 text_position=text_pos,
                 text_color=text_color,
-                text_size=int(text_size)  # Ensure text_size is an integer
+                text_size=text_size
             )
             
             # Display converted image

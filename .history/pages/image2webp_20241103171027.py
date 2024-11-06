@@ -26,7 +26,7 @@ def resize_image(image, size):
         image.thumbnail(size, Image.Resampling.LANCZOS)
     return image
 
-def add_text_to_image(image, text, position, font_size=40, color="white"):
+ef add_text_to_image(image, text, position, font_size=40, color="white"):
     """Add text to image at specified position"""
     # Create a copy of the image to avoid modifying original
     img_copy = image.copy()
@@ -34,13 +34,13 @@ def add_text_to_image(image, text, position, font_size=40, color="white"):
     
     try:
         # Try to load a system font (you might want to include a specific font file)
-        font = ImageFont.truetype("arial.ttf", size=font_size)
+        font = ImageFont.truetype("arial.ttf", size=font_size)  # Added size parameter
     except:
         # Fallback to default font
         font = ImageFont.load_default()
     
     # Draw text on image with specified color
-    draw.text(position, text, font=font, fill=color)
+    draw.text(position, text, font=font, fill=color)  # color parameter will be used here
     return img_copy
 
 def convert_to_webp(input_image, size=None, quality=90, text=None, text_position=None, text_color="white", text_size=40):
@@ -59,6 +59,17 @@ def convert_to_webp(input_image, size=None, quality=90, text=None, text_position
     # Save as WebP
     image.save(output_file, "WebP", quality=quality)
     return output_file, image
+
+# In the main() function, update the convert_to_webp call:
+            webp_file, converted_image = convert_to_webp(
+                uploaded_file, 
+                size, 
+                quality,
+                text=text_params,
+                text_position=text_pos,
+                text_color=text_color,  # Add this parameter
+                text_size=text_size     # Add this parameter
+            )
 
 def main():
     st.set_page_config(page_title="Advanced Image Converter", layout="wide")
@@ -125,8 +136,7 @@ def main():
                 quality,
                 text=text_params,
                 text_position=text_pos,
-                text_color=text_color,
-                text_size=int(text_size)  # Ensure text_size is an integer
+                
             )
             
             # Display converted image

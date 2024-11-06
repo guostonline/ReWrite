@@ -4,7 +4,7 @@ from stc.county_list import *
 import pyperclip 
 
 
-st.set_page_config(page_title="Jarves SEO")
+st.set_page_config(page_title="")
 st.write("""
 # Ai prompt generate
 """)

@@ -40,7 +40,7 @@ def add_text_to_image(image, text, position, font_size=40, color="white"):
         font = ImageFont.load_default()
     
     # Draw text on image with specified color
-    draw.text(position, text, font=font, fill=color)
+    draw.text(position, text, font=font_, fill=color)
     return img_copy
 
 def convert_to_webp(input_image, size=None, quality=90, text=None, text_position=None, text_color="white", text_size=40):
@@ -126,7 +126,7 @@ def main():
                 text=text_params,
                 text_position=text_pos,
                 text_color=text_color,
-                text_size=int(text_size)  # Ensure text_size is an integer
+                text_size=text_size
             )
             
             # Display converted image

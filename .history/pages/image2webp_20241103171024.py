@@ -26,39 +26,7 @@ def resize_image(image, size):
         image.thumbnail(size, Image.Resampling.LANCZOS)
     return image
 
-def add_text_to_image(image, text, position, font_size=40, color="white"):
-    """Add text to image at specified position"""
-    # Create a copy of the image to avoid modifying original
-    img_copy = image.copy()
-    draw = ImageDraw.Draw(img_copy)
-    
-    try:
-        # Try to load a system font (you might want to include a specific font file)
-        font = ImageFont.truetype("arial.ttf", size=font_size)
-    except:
-        # Fallback to default font
-        font = ImageFont.load_default()
-    
-    # Draw text on image with specified color
-    draw.text(position, text, font=font, fill=color)
-    return img_copy
-
-def convert_to_webp(input_image, size=None, quality=90, text=None, text_position=None, text_color="white", text_size=40):
-    """Convert image to WebP format with optional resizing and text overlay"""
-    output_file = os.path.splitext(input_image.name)[0] + ".webp"
-    image = Image.open(input_image)
-    
-    # Resize if size is specified
-    if size:
-        image = resize_image(image, size)
-    
-    # Add text if specified
-    if text and text_position:
-        image = add_text_to_image(image, text, text_position, font_size=text_size, color=text_color)
-    
-    # Save as WebP
-    image.save(output_file, "WebP", quality=quality)
-    return output_file, image
+c
 
 def main():
     st.set_page_config(page_title="Advanced Image Converter", layout="wide")
@@ -125,8 +93,7 @@ def main():
                 quality,
                 text=text_params,
                 text_position=text_pos,
-                text_color=text_color,
-                text_size=int(text_size)  # Ensure text_size is an integer
+                
             )
             
             # Display converted image
